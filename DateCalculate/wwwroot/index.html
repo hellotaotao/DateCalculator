@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+            crossorigin="anonymous"
+        />
+        <title>Document</title>
+    </head>
+    <p></p>
+    <body>
+        <div class="container py-3">
+            <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                <h1 class="display-4 fw-normal">DateCalculate API</h1>
+                <p class="fs-5 text-muted">
+                    Calculate how many days, weekdays, or complete weeks are there between given two dates.
+                    <br />
+                    Return value is converted to one of the following units of your choice: seconds, minutes, hours,
+                    years, or days by default.
+                </p>
+            </div>
+            <main>
+                <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">How many <strong>days</strong></h4>
+                            </div>
+                            <div class="card-body">
+                                <form action="/api/Days" method="get">
+                                    <p>
+                                        <input name="DateTime1" type="datetime-local" />
+                                    </p>
+                                    <p>
+                                        <input name="DateTime2" type="datetime-local" />
+                                    </p>
+                                    <p>
+                                        <select name="Unit" id="">
+                                            <option value="">Select Unit</option>
+                                            <option value="0">Seconds</option>
+                                            <option value="1">Minutes</option>
+                                            <option value="2">Hours</option>
+                                            <option value="3">Years</option>
+                                        </select>
+                                    </p>
+                                    <input type="submit" value="Submit" class="w-100 btn btn-lg btn-primary" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">How many <strong>weekdays</strong></h4>
+                            </div>
+                            <div class="card-body">
+                                <form action="/api/Weekdays" method="get">
+                                    <p>
+                                        <input name="DateTime1" type="datetime-local" />
+                                    </p>
+                                    <p>
+                                        <input name="DateTime2" type="datetime-local" />
+                                    </p>
+                                    <p>
+                                        <select name="Unit" id="">
+                                            <option value="">Select Unit</option>
+                                            <option value="0">Seconds</option>
+                                            <option value="1">Minutes</option>
+                                            <option value="2">Hours</option>
+                                            <option value="3">Years</option>
+                                        </select>
+                                    </p>
+                                    <input type="submit" value="Submit" class="w-100 btn btn-lg btn-primary" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal">How many <strong>complete weeks</strong></h4>
+                            </div>
+                            <div class="card-body">
+                                <form action="/api/CompleteWeeks" method="get">
+                                    <p>
+                                        <input name="DateTime1" type="datetime-local" />
+                                    </p>
+                                    <p>
+                                        <input name="DateTime2" type="datetime-local" />
+                                    </p>
+                                    <p>
+                                        <select name="Unit" id="">
+                                            <option value="">Select Unit</option>
+                                            <option value="0">Seconds</option>
+                                            <option value="1">Minutes</option>
+                                            <option value="2">Hours</option>
+                                            <option value="3">Years</option>
+                                        </select>
+                                    </p>
+                                    <input type="submit" value="Submit" class="w-100 btn btn-lg btn-primary" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="display-6 text-center mb-4">
+                    <a href="/swagger/index.html">Swagger UI</a>
+                </h2>
+            </main>
+        </div>
+    </body>
+</html>

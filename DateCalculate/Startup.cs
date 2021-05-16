@@ -43,6 +43,8 @@ namespace DateCalculate
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DateCalculate v1"));
             }
 
+            app.UseStaticFiles();
+
             app.UseRouting();
 
             app.UseAuthorization();
