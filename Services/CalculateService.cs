@@ -4,16 +4,21 @@ namespace DateCalculate.Services
 {
     public static class CalculateService
     {
-        public static int DaysCalculate(Request request)
+        public static double DaysCalculate(Request request)
         {
-            var days = (request.DateTime1 - request.DateTime2).TotalDays;
-            return (int)Math.Abs(days);
+            var days = (int)Math.Abs((request.DateTime1 - request.DateTime2).TotalDays);
+            return Convert(days, request.Unit);
         }
-        
-        public static int WeekdaysCalculate(Request request)
+
+        public static double WeekdaysCalculate(Request request)
         {
             var start = request.DateTime1;
             var end = request.DateTime2;
+            if (start > end)
+            {
+                start = request.DateTime2;
+                end = request.DateTime1;
+            }
 
             var weekdays = 0;
 
@@ -23,13 +28,31 @@ namespace DateCalculate.Services
                     weekdays++;
                 start = start.AddDays(1);
             }
-            return Math.Abs(weekdays);
+
+            return Convert(weekdays, request.Unit);
         }
 
-        public static int CompleteWeeksCalculate(Request request)
+        public static double CompleteWeeksCalculate(Request request)
         {
-            var days = (request.DateTime1 - request.DateTime2).TotalDays;
-            return (int) Math.Abs(days) / 7;
+            var days = (int)Math.Abs((request.DateTime1 - request.DateTime2).TotalDays);
+            return Convert(days / 7, request.Unit);
+        }
+
+        private static double Convert(int days, ReturnUnit? unit)
+        {
+            switch (unit)
+            {
+                case ReturnUnit.Seconds:
+                    return days * 24 * 3600;
+                case ReturnUnit.Minutes:
+                    return days * 24 * 60;
+                case ReturnUnit.Hours:
+                    return days * 24;
+                case ReturnUnit.Years:
+                    return days / 365.0;
+                default:
+                    return days;
+            }
         }
     }
 }
