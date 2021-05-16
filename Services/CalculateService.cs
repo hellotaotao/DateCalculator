@@ -6,14 +6,14 @@ namespace DateCalculate.Services
     {
         public static int DaysCalculate(Request request)
         {
-            var days = (request.dateTime1 - request.dateTime2).TotalDays;
+            var days = (request.DateTime1 - request.DateTime2).TotalDays;
             return (int)Math.Abs(days);
         }
         
         public static int WeekdaysCalculate(Request request)
         {
-            var start = request.dateTime1;
-            var end = request.dateTime2;
+            var start = request.DateTime1;
+            var end = request.DateTime2;
 
             var weekdays = 0;
 
@@ -28,7 +28,7 @@ namespace DateCalculate.Services
 
         public static int CompleteWeeksCalculate(Request request)
         {
-            var days = (request.dateTime1 - request.dateTime2).TotalDays;
+            var days = (request.DateTime1 - request.DateTime2).TotalDays;
             return (int) Math.Abs(days) / 7;
         }
     }
