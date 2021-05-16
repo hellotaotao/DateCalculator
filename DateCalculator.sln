@@ -3,7 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateCalculateTest", "DateCalculateTest\DateCalculateTest.csproj", "{645BE632-03BB-447C-B4D4-263ED5590941}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateCalculateTest", "DateCalculateTest\DateCalculateTest.csproj", "{645BE632-03BB-447C-B4D4-263ED5590941}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CA178E79-6B12-4847-A194-F69A7785B90D} = {CA178E79-6B12-4847-A194-F69A7785B90D}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateCalculate", "DateCalculate\DateCalculate.csproj", "{CA178E79-6B12-4847-A194-F69A7785B90D}"
 EndProject
