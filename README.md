@@ -37,6 +37,15 @@ There are 3 endpoints:
 /api/CompleteWeeks
 ```
 
-each accepts GET request.
+Each accepts a GET request that has 3 parameters:
+
+1 and 2: DateTime provided in string format, with or without timezone information. Error will be returned if the string could not be parsed to DateTime object.
+3: An integer (0, 1, 2, or 3) specifying the expected return value is in seconds, minutes, hours, or years.
+
+If the provided DateTime parameters does not contain timezone information, they will be seen as provided in local timezone of the running instance.
+
+If the provided DateTime parameters contains timezone information, they will be converted to local timezone of the running instance before doing further calculations.
 
 The Swagger UI provides details about the specifications of each API
+
+There is another endpoint `/api/DateTimeParse` which accepts a DateTime string, and returns the parsed DateTime object. This helps to identify the local timezone of the running instance.
