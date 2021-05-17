@@ -26,7 +26,7 @@ namespace DateCalculateTest
         
         
         [Test]
-        public void WithoutTimezone()
+        public void WithoutTimezone_1()
         {
             var request = new Request
             {
@@ -36,9 +36,9 @@ namespace DateCalculateTest
             var days = service.DaysCalculate(request);
             Assert.AreEqual(days, 29d);
             var weekdays = service.WeekdaysCalculate(request);
-            Assert.AreEqual(weekdays, 20d);
+            Assert.AreEqual(weekdays, 21d);
             var completeWeeks = service.CompleteWeeksCalculate(request);
-            Assert.AreEqual(completeWeeks, 4d);
+            Assert.AreEqual(completeWeeks, 3d);
         }
 
         [Test]
