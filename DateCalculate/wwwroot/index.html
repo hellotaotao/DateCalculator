@@ -10,10 +10,6 @@
             integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
             crossorigin="anonymous"
         />
-        <style>
-            .bg-blue { background-color: #61affe; }
-            .bg-green { background-color: #49cc90; }
-        </style>
         <title>Document</title>
     </head>
     <p></p>
@@ -29,16 +25,11 @@
                 </p>
             </div>
             <main>
-                <div class="d-flex align-items-center p-3 my-3 text-white bg-blue rounded shadow-sm">
-                    <div class="lh-1">
-                        <h1 class="h6 mb-0 text-white lh-1">HTTP GET</h1>
-                    </div>
-                </div>
                 <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
                     <div class="col">
                         <div class="card mb-4 rounded-3 shadow-sm">
                             <div class="card-header py-3">
-                                <h5 class="my-0 fw-normal">How many <strong>days</strong></h5>
+                                <h4 class="my-0 fw-normal">How many <strong>days</strong></h4>
                             </div>
                             <div class="card-body">
                                 <form action="/api/Days" method="get">
@@ -49,7 +40,7 @@
                                         <input name="DateTime2" type="datetime-local" />
                                     </p>
                                     <p>
-                                        <select name="Unit">
+                                        <select name="Unit" id="">
                                             <option value="">Select Unit</option>
                                             <option value="0">Seconds</option>
                                             <option value="1">Minutes</option>
@@ -65,7 +56,7 @@
                     <div class="col">
                         <div class="card mb-4 rounded-3 shadow-sm">
                             <div class="card-header py-3">
-                                <h5 class="my-0 fw-normal">How many <strong>weekdays</strong></h5>
+                                <h4 class="my-0 fw-normal">How many <strong>weekdays</strong></h4>
                             </div>
                             <div class="card-body">
                                 <form action="/api/Weekdays" method="get">
@@ -76,7 +67,7 @@
                                         <input name="DateTime2" type="datetime-local" />
                                     </p>
                                     <p>
-                                        <select name="Unit">
+                                        <select name="Unit" id="">
                                             <option value="">Select Unit</option>
                                             <option value="0">Seconds</option>
                                             <option value="1">Minutes</option>
@@ -92,7 +83,7 @@
                     <div class="col">
                         <div class="card mb-4 rounded-3 shadow-sm">
                             <div class="card-header py-3">
-                                <h5 class="my-0 fw-normal">How many <strong>complete weeks</strong></h5>
+                                <h4 class="my-0 fw-normal">How many <strong>complete weeks</strong></h4>
                             </div>
                             <div class="card-body">
                                 <form action="/api/CompleteWeeks" method="get">
@@ -103,7 +94,7 @@
                                         <input name="DateTime2" type="datetime-local" />
                                     </p>
                                     <p>
-                                        <select name="Unit">
+                                        <select name="Unit" id="">
                                             <option value="">Select Unit</option>
                                             <option value="0">Seconds</option>
                                             <option value="1">Minutes</option>
@@ -118,97 +109,8 @@
                     </div>
                 </div>
 
-                <div class="d-flex align-items-center p-3 my-3 text-white bg-green rounded shadow-sm">
-                    <div class="lh-1">
-                        <h1 class="h6 mb-0 text-white lh-1">HTTP POST</h1>
-                    </div>
-                </div>
-                <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-                    <div class="col">
-                        <div class="card mb-4 rounded-3 shadow-sm">
-                            <div class="card-header py-3">
-                                <h5 class="my-0 fw-normal">How many <strong>days</strong></h5>
-                            </div>
-                            <div class="card-body">
-                                <form action="/api/Days" method="post">
-                                    <p>
-                                        <input name="DateTime1" type="datetime-local" />
-                                    </p>
-                                    <p>
-                                        <input name="DateTime2" type="datetime-local" />
-                                    </p>
-                                    <p>
-                                        <select name="Unit">
-                                            <option value="">Select Unit</option>
-                                            <option value="0">Seconds</option>
-                                            <option value="1">Minutes</option>
-                                            <option value="2">Hours</option>
-                                            <option value="3">Years</option>
-                                        </select>
-                                    </p>
-                                    <input type="submit" value="Submit" class="w-100 btn btn-lg btn-primary" />
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card mb-4 rounded-3 shadow-sm">
-                            <div class="card-header py-3">
-                                <h5 class="my-0 fw-normal">How many <strong>weekdays</strong></h5>
-                            </div>
-                            <div class="card-body">
-                                <form action="/api/Weekdays" method="post">
-                                    <p>
-                                        <input name="DateTime1" type="datetime-local" />
-                                    </p>
-                                    <p>
-                                        <input name="DateTime2" type="datetime-local" />
-                                    </p>
-                                    <p>
-                                        <select name="Unit">
-                                            <option value="">Select Unit</option>
-                                            <option value="0">Seconds</option>
-                                            <option value="1">Minutes</option>
-                                            <option value="2">Hours</option>
-                                            <option value="3">Years</option>
-                                        </select>
-                                    </p>
-                                    <input type="submit" value="Submit" class="w-100 btn btn-lg btn-primary" />
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card mb-4 rounded-3 shadow-sm">
-                            <div class="card-header py-3">
-                                <h5 class="my-0 fw-normal">How many <strong>complete weeks</strong></h5>
-                            </div>
-                            <div class="card-body">
-                                <form action="/api/CompleteWeeks" method="post">
-                                    <p>
-                                        <input name="DateTime1" type="datetime-local" />
-                                    </p>
-                                    <p>
-                                        <input name="DateTime2" type="datetime-local" />
-                                    </p>
-                                    <p>
-                                        <select name="Unit">
-                                            <option value="">Select Unit</option>
-                                            <option value="0">Seconds</option>
-                                            <option value="1">Minutes</option>
-                                            <option value="2">Hours</option>
-                                            <option value="3">Years</option>
-                                        </select>
-                                    </p>
-                                    <input type="submit" value="Submit" class="w-100 btn btn-lg btn-primary" />
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
                 <h2 class="display-6 text-center mb-4">
-                    <a href="/swagger/index.html" class="btn btn-outline-secondary btn-lg px-4 gap-3">Swagger UI</a>
+                    <a href="/swagger/index.html">Swagger UI</a>
                 </h2>
             </main>
         </div>
