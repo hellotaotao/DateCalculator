@@ -12,13 +12,7 @@ namespace DateCalculate.Services
 
         public double WeekdaysCalculate(Request request)
         {
-            var start = request.DateTime1;
-            var end = request.DateTime2;
-            if (start > end)
-            {
-                start = request.DateTime2;
-                end = request.DateTime1;
-            }
+            var (start, end) = GetStartAndEnd(request);
 
             if ((end - start).TotalDays < 1) return 0;
 
@@ -47,13 +41,7 @@ namespace DateCalculate.Services
         // The system for numbering weeks is the ISO week date system, which is included in ISO 8601. This system dictates that each week begins on a Monday (https://en.wikipedia.org/wiki/Week)
         public double CompleteWeeksCalculate(Request request)
         {
-            var start = request.DateTime1;
-            var end = request.DateTime2;
-            if (start > end)
-            {
-                start = request.DateTime2;
-                end = request.DateTime1;
-            }
+            var (start, end) = GetStartAndEnd(request);
 
             if ((end - start).TotalDays < 7) return 0;
             
@@ -102,6 +90,19 @@ namespace DateCalculate.Services
                 default:
                     return days;
             }
+        }
+
+        private static (DateTime, DateTime) GetStartAndEnd(Request request)
+        {
+            var start = request.DateTime1;
+            var end = request.DateTime2;
+            if (start > end)
+            {
+                start = request.DateTime2;
+                end = request.DateTime1;
+            }
+
+            return (start, end);
         }
     }
 }

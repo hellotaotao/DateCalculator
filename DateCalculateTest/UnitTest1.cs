@@ -10,9 +10,11 @@ namespace DateCalculateTest
         // without timezone
         private readonly DateTime dt1 = DateTime.Parse("2021-04-29T07:34:42");
         private readonly DateTime dt2 = DateTime.Parse("2021-05-28T07:34:42");
+        private readonly DateTime dt3 = DateTime.Parse("2021-05-28T07:34:41");
         // with timezone
-        private readonly DateTime dt3 = DateTime.Parse("2021-04-29T07:34:42+9:30");
-        private readonly DateTime dt4 = DateTime.Parse("2021-05-28T07:34:42+9:30");
+        private readonly DateTime dtz1 = DateTime.Parse("2021-04-29T07:34:42+9:30");
+        private readonly DateTime dtz2 = DateTime.Parse("2021-05-28T07:34:42+9:30");
+        private readonly DateTime dtz3 = DateTime.Parse("2021-05-28T07:34:41+9:30");
 
         private CalculateService service;
         
@@ -40,21 +42,53 @@ namespace DateCalculateTest
             var completeWeeks = service.CompleteWeeksCalculate(request);
             Assert.AreEqual(completeWeeks, 3d);
         }
-
+        
         [Test]
-        public void WithSameTimezone()
+        public void WithoutTimezone_2()
         {
             var request = new Request
             {
-                DateTime1 = dt3,
-                DateTime2 = dt4
+                DateTime1 = dt1,
+                DateTime2 = dt3
+            };
+            var days = service.DaysCalculate(request);
+            Assert.AreEqual(days, 28d);
+            var weekdays = service.WeekdaysCalculate(request);
+            Assert.AreEqual(weekdays, 20d);
+            var completeWeeks = service.CompleteWeeksCalculate(request);
+            Assert.AreEqual(completeWeeks, 3d);
+        }
+
+        [Test]
+        public void WithSameTimezone_1()
+        {
+            var request = new Request
+            {
+                DateTime1 = dtz1,
+                DateTime2 = dtz2
             };
             var days = service.DaysCalculate(request);
             Assert.AreEqual(days, 29d);
             var weekdays = service.WeekdaysCalculate(request);
+            Assert.AreEqual(weekdays, 21d);
+            var completeWeeks = service.CompleteWeeksCalculate(request);
+            Assert.AreEqual(completeWeeks, 3d);
+        }
+        
+        [Test]
+        public void WithSameTimezone_2()
+        {
+            var request = new Request
+            {
+                DateTime1 = dtz1,
+                DateTime2 = dtz3
+            };
+            var days = service.DaysCalculate(request);
+            Assert.AreEqual(days, 28d);
+            var weekdays = service.WeekdaysCalculate(request);
             Assert.AreEqual(weekdays, 20d);
             var completeWeeks = service.CompleteWeeksCalculate(request);
-            Assert.AreEqual(completeWeeks, 4d);
+            Assert.AreEqual(completeWeeks, 3d);
         }
         
         [Test]
