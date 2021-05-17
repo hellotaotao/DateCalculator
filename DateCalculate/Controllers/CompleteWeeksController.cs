@@ -9,11 +9,16 @@ namespace DateCalculate.Controllers
     [ApiController]
     public class CompleteWeeksController : ControllerBase
     {
+        private readonly ICalculateService calculateService;
+        public CompleteWeeksController(ICalculateService service)
+        {
+            calculateService = service;
+        }
         // GET: api/<DaysController>
         [HttpGet]
         public IActionResult Get([FromQuery] Request request)
         {
-            var completeWeeks = CalculateService.CompleteWeeksCalculate(request);
+            var completeWeeks = calculateService.CompleteWeeksCalculate(request);
             return Ok(completeWeeks.ToString());
         }
     }

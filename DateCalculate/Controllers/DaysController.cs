@@ -9,11 +9,16 @@ namespace DateCalculate.Controllers
     [ApiController]
     public class DaysController : ControllerBase
     {
+        private readonly ICalculateService calculateService;
+        public DaysController(ICalculateService service)
+        {
+            calculateService = service;
+        }
         // GET: api/<DaysController>
         [HttpGet]
         public IActionResult Get([FromQuery] Request request)
         {
-            var days = CalculateService.DaysCalculate(request);
+            var days = calculateService.DaysCalculate(request);
             return Ok(days.ToString());
         }
     }

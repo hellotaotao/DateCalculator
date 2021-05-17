@@ -2,15 +2,15 @@
 
 namespace DateCalculate.Services
 {
-    public static class CalculateService
+    public class CalculateService : ICalculateService
     {
-        public static double DaysCalculate(Request request)
+        public double DaysCalculate(Request request)
         {
             var days = (int)Math.Abs((request.DateTime1 - request.DateTime2).TotalDays);
             return Convert(days, request.Unit);
         }
 
-        public static double WeekdaysCalculate(Request request)
+        public double WeekdaysCalculate(Request request)
         {
             var start = request.DateTime1;
             var end = request.DateTime2;
@@ -32,13 +32,13 @@ namespace DateCalculate.Services
             return Convert(weekdays, request.Unit);
         }
 
-        public static double CompleteWeeksCalculate(Request request)
+        public double CompleteWeeksCalculate(Request request)
         {
             var days = (int)Math.Abs((request.DateTime1 - request.DateTime2).TotalDays);
             return Convert(days / 7, request.Unit);
         }
 
-        private static double Convert(int days, ReturnUnit? unit)
+        private double Convert(int days, ReturnUnit? unit)
         {
             switch (unit)
             {
