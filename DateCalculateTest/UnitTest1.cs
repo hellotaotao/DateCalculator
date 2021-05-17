@@ -1,7 +1,7 @@
 using System;
-using NUnit.Framework;
 using DateCalculate;
 using DateCalculate.Services;
+using NUnit.Framework;
 
 namespace DateCalculateTest
 {
@@ -17,16 +17,29 @@ namespace DateCalculateTest
         private readonly DateTime dtz3 = DateTime.Parse("2021-05-28T07:34:41+9:30");
 
         private CalculateService service;
-        
+
         [SetUp]
         public void Setup()
         {
             service = new CalculateService();
         }
-        
-        // TODO: Test with different DateTime string formats
-        
-        
+
+        [Test]
+        public void ShouldAcceptDifferentDateTimeStringFormats()
+        {
+            var dt1 = DateTime.Parse("2008-05-01T07:34:42-5:00");
+            Assert.AreEqual(dt1.Hour, 22);
+            var dt2 = DateTime.Parse("2008-05-01T07:34:42");
+            Assert.AreEqual(dt2.Hour, 7);
+            var dt3 = DateTime.Parse("2008-05-01 7:34:42");
+            Assert.AreEqual(dt3.Hour, 7);
+            var dt4 = DateTime.Parse("Thu, 01 May 2008 07:34:42 GMT");
+            Assert.AreEqual(dt4.Hour, 17);
+            var dt5 = DateTime.Parse("Thu, 01 May 2008 07:34:42+9:30");
+            Assert.AreEqual(dt5.Hour, 7);
+        }
+
+
         [Test]
         public void WithoutTimezone_1()
         {
@@ -42,7 +55,7 @@ namespace DateCalculateTest
             var completeWeeks = service.CompleteWeeksCalculate(request);
             Assert.AreEqual(completeWeeks, 3d);
         }
-        
+
         [Test]
         public void WithoutTimezone_2()
         {
@@ -74,7 +87,7 @@ namespace DateCalculateTest
             var completeWeeks = service.CompleteWeeksCalculate(request);
             Assert.AreEqual(completeWeeks, 3d);
         }
-        
+
         [Test]
         public void WithSameTimezone_2()
         {
@@ -90,7 +103,7 @@ namespace DateCalculateTest
             var completeWeeks = service.CompleteWeeksCalculate(request);
             Assert.AreEqual(completeWeeks, 3d);
         }
-        
+
         [Test]
         public void WithDifferentTimezone()
         {
