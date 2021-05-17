@@ -15,7 +15,7 @@ namespace DateCalculate.Controllers
             calculateService = service;
         }
         // GET: api/<DaysController>
-        [HttpGet]
+        [HttpGet, HttpPost]
         public IActionResult Get([FromQuery] Request request)
         {
             var days = calculateService.WeekdaysCalculate(request);
