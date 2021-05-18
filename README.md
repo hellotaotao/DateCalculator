@@ -16,10 +16,10 @@ git clone https://github.com/hellotaotao/DateCalculator.git
 cd DateCalculator
 ```
 
-3. Use docker-composer to run the project:
+3. Use docker-compose to run the project:
 
 ```
-docker-composer up
+docker-compose up
 ```
 
 4. Open [http://localhost:5000/index.html](http://localhost:5000/index.html)
